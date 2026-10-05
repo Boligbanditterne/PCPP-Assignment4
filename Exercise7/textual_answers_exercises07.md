@@ -46,6 +46,7 @@ It is not possible to q.deq(y) here since the q.enq(x) must happen before q.enq(
 ## 7.2
 
 ### 7.2.1
+*** Define linearization points for the push and pop methods in the Treiber Stack code provided in app/src/main/java/exercises07/LockFreeStack.java. Explain why those linearization points show that the implementation of the Treiber Stack is linearizable.***
 
 ***See LockFreeStack.java***
 
@@ -60,14 +61,17 @@ For pop can conditionally end after P3. Furthermore P6 is also a linearization p
 If another threads pops concurrently, then one of the threads might discover that the head is now null and terminate. Otherwise they will continuously try to perform the pop. 
 
 ### 7.2.2
+***Write a JUnit functional correctness test for the push method of the Treiber Stack.***
 
 ***TestLockFreeStack.java***
 
 ### 7.2.3
+***Write a JUnit functional correctness test for the pop method of the Treiber Stack.***
 
 ***TestLockFreeStack.java***
 
 ### 7.2.4
+***Do the tests in part 2. and 3. cover all linearization points in the Treiber Stack? Explain your answer. If you answered that not all linearization points were covered, then add additional concurrent functional tests to cover all linearization points.***
 
 No the tests do not really cover the case where it tries to pop from an emptylist - where head is null.
 
@@ -76,6 +80,7 @@ No the tests do not really cover the case where it tries to pop from an emptylis
 ## 7.3
 
 ### 7.3.1
+***Consider the reader-writer locks exercise from week 6. There are four methods included in this type of locks: writerTryLock, writerUnlock, readerTryLock and readerUnlock. State, for each method, whether they are wait-free, lock-free or obstruction-free and explain your answers.***
 
 All writer functions are wait-free. They do not loop but just complete without waiting.
 
